@@ -1,0 +1,27 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: gatewaysosmongarage
+
+  cloud:
+    gateway:
+      routes:
+        - id: messagerie-service
+          uri: https://sos-mon-garage-messagerie-notification-production-5b5b.up.railway.app
+          predicates:
+            - Path=/V2/**
+
+        - id: garage-service
+          uri: https://sosmongarage-production-d435.up.railway.app
+          predicates:
+            - Path=/V1/**
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Messagerie Service
+        url: /V2/v3/api-docs
+      - name: Garage Service
+        url: /V1/v3/api-docs
