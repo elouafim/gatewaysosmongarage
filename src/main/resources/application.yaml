@@ -29,4 +29,4 @@ springdoc:
       - name: Garage Service
         url: /V1/v3/api-docs
   api-docs:
-    enabled: false  # désactive l'api-doc de la Gateway elle-même
+    enabled: false
